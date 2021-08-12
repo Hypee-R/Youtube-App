@@ -21,8 +21,9 @@ export class YoutubeService {
     const params = new HttpParams()
         .set('key', this.apiKey)
         .set('part', 'snippet')
-        .set('maxResults', '10')
-        .set('playlistId', this.playList);
+        .set('maxResults', '8')
+        .set('playlistId', this.playList)
+        .set('pageToken', this.nextPageToken);
 
     return this.http.get<YoutubeResponse>(`${this.youtubeURL}/playlistItems`, { params: params })
                 .pipe(

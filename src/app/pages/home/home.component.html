@@ -2,7 +2,7 @@
 <hr>
 
 <div class="card-columns">
-    <div class="card" *ngFor="let video of videos">
+    <div class="card animate__animated animate__fadeIn" *ngFor="let video of videos">
         <img [src]="video.thumbnails.high.url" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ video.title }}</h5>
@@ -13,7 +13,7 @@
                 <strong>Publicado:</strong> {{ video.publishedAt | date: 'short'}}
             </p>
 
-            <button class="btn btn-outline-primary btn-block">Ver Video</button>
+            <button class="btn btn-outline-primary btn-block" (click)="mostrarVideo(video)">Ver Video</button>
 
         </div>
     </div>
@@ -21,6 +21,6 @@
 
 <div class="row mt-5 mb-5 text-center">
     <div class="col">
-        <button class="btn btn-primary btn-lg">Siguiente Página</button>
+        <button class="btn btn-primary btn-lg" (click)="cargarVideos()">Siguiente Página</button>
     </div>
 </div>
